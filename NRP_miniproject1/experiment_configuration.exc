@@ -1,0 +1,25 @@
+<ns1:ExD 
+  xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ns1:name>miniproject1</ns1:name>
+  <ns1:thumbnail>miniproject0.png</ns1:thumbnail>
+  <ns1:description>Unsupervised learning : Self-organizing map</ns1:description>
+  <ns1:tags>pioneer robotics template empty</ns1:tags>
+  <ns1:timeout>3600.0</ns1:timeout>
+  <ns1:configuration src="ExDTemplatePioneer.ini" type="3d-settings" />
+  <ns1:configuration src="brainvisualizer.json" type="brainvisualizer" />
+  <ns1:configuration src="ExDTemplatePioneer.uis" type="user-interaction-settings" />
+  <ns1:maturity>production</ns1:maturity>
+  <ns1:environmentModel src="empty_world.sdf">
+    <ns1:robotPose pitch="0.0" roll="0.0" x="-4.0" y="-4.0" yaw="45.0" z="0.1" />
+  </ns1:environmentModel>
+  <ns1:bibiConf src="bibi_configuration.bibi" />
+  <ns1:cameraPose>
+    <ns1:cameraPosition x="0.0" y="0.0" z="11.0" />
+    <ns1:cameraLookAt x="0.0" y="0.0" z="0.6" />
+  </ns1:cameraPose>
+  <ns1:rosLaunch src="robot_description.launch" />
+  <ns1:experimentControl>
+    <stateMachine id="statemachine_0_1539862964800_frontend_generated" src="statemachine_0_1539862964800_frontend_generated.exd" xsi:type="ns1:SMACHStateMachine" />
+  </ns1:experimentControl>
+</ns1:ExD>

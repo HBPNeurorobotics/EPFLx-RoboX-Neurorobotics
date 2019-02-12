@@ -1,0 +1,88 @@
+#!/usr/bin/env python
+"""
+A state-machine that deletes, spawns and moves objects in the 3D scenes.
+"""
+
+__author__ = 'Sven Liedtke (liedtke@in.tum.de)'
+
+import math
+import numpy as np
+import time
+import rospy
+import smach
+import csv
+from smach import StateMachine
+from smach import CBState
+from hbp_nrp_excontrol.nrp_states import WaitToClockState, RobotPoseMonitorState, \
+    SetMaterialColorServiceState, ClockDelayState, SpawnSphere, DestroyModel, SetModelPose
+from hbp_nrp_excontrol.logs import clientLogger
+from geometry_msgs.msg import Pose, Point, Quaternion, Twist, Vector3
+from gazebo_msgs.srv import SetModelState
+from gazebo_msgs.msg import ModelState
+
+
+import hbp_nrp_excontrol.nrp_states as states
+from smach import StateMachine
+import smach_ros
+import smach
+from smach import CBState
+from hbp_nrp_excontrol.nrp_states import WaitToClockState
+import rospy
+from std_msgs.msg import Float64MultiArray
+from hbp_nrp_excontrol.logs import clientLogger
+
+
+
+@smach.cb_interface(input_keys=[''], output_keys=[''], outcomes=['succeeded'])
+def init(userdata):
+    time.sleep(1)
+    return 'succeeded'
+
+
+
+
+def callback(data):
+    clientLogger.info("Receiving:")
+    clientLogger.info(data.data)
+
+listener = rospy.Subscriber('/tf/value', Float64MultiArray, callback)
+
+
+
+
+
+set_model_state = rospy.ServiceProxy('/gazebo/set_model_state', SetModelState)
+
+################################################################
+################################################################
+
+FINISHED = 'FINISHED'
+ERROR = 'ERROR'
+PREEMPTED = 'PREEMPTED'
+
+sm = StateMachine(outcomes=[FINISHED, ERROR, PREEMPTED])
+sm.userdata.counter = 0
+
+mousePosition = Point(-0.895, -1.9975, 1.115)
+
+initialSpherePos = Point(mousePosition.x + 0.5, mousePosition.y - 0.25, mousePosition.z + 0.05)
+targetSpherePos = Point(mousePosition.x + 0.5, mousePosition.y + 0.25, mousePosition.z + 0.05)
+
+with sm:
+    StateMachine.add('INIT',
+                     CBState(init),
+                     transitions={'succeeded': 'INITIAL_WAITING'})
+    # Hard code an array of 2d coordinates
+    # load data of som-lattice from csv
+    lattice_positions = np.zeros((2,2,2))
+    lattice_positions = [[ [1,1],[-0.5,2] ],[ [-1.0,3],[-1.5,0] ]]
+    #clientLogger.info(lattice_positions[0,1,0])
+
+    Nl = 2
+    for i in range(Nl):
+        for j in range(Nl):
+            StateMachine.add('SPAWN_OBJECT_' + str(i*Nl+j),
+                SpawnSphere(model_name="cylinder_" + str(i*Nl+j), radius=0.2,
+                                 position=Point(lattice_positions[i][j][0],lattice_positions[i][j][1],1.0), gravity_factor=0, color = 'red'),
+                transitions={'succeeded': 'SPAWN_OBJECT_' + str(i*Nl+j+1), 'aborted': ERROR,
+                                  'preempted': PREEMPTED})
