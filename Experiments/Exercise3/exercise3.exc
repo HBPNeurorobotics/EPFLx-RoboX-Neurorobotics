@@ -1,0 +1,25 @@
+<ns1:ExD 
+  xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ns1:name>Exercise 3: Navigate the robot between any two points of its environment</ns1:name>
+  <ns1:thumbnail>exercise3.png</ns1:thumbnail>
+  <ns1:description>Implement the SARSA algorithm to produce a series of waypoints that join any two given locations.</ns1:description>
+  <ns1:tags>pioneer robotics template empty</ns1:tags>
+  <ns1:timeout>3600.0</ns1:timeout>
+  <ns1:configuration src="exercise3.ini" type="3d-settings" />
+  <ns1:configuration src="brainvisualizer.json" type="brainvisualizer" />
+  <ns1:configuration src="exercise3.uis" type="user-interaction-settings" />
+  <ns1:maturity>production</ns1:maturity>
+  <ns1:environmentModel src="mooc_arena/mooc_arena.sdf">
+    <ns1:robotPose pitch="0.0" roll="0.0" x="-4.0" y="-4.0" yaw="45.0" z="0.1" />
+  </ns1:environmentModel>
+  <ns1:bibiConf src="bibi_configuration.bibi" />
+  <ns1:cameraPose>
+    <ns1:cameraPosition x="0.0" y="0.0" z="11.0" />
+    <ns1:cameraLookAt x="0.0" y="0.0" z="0.6" />
+  </ns1:cameraPose>
+  <ns1:rosLaunch src="robot_description.launch" />
+  <ns1:experimentControl>
+    <stateMachine id="draw_waypoints" src="draw_waypoints.exd" xsi:type="ns1:SMACHStateMachine" />
+  </ns1:experimentControl>
+</ns1:ExD>
