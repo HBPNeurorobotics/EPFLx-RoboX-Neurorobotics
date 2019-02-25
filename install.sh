@@ -32,7 +32,7 @@ if [[ ${nrp_folder_not_found} == "1" ]]; then
   exit 1
 fi
 
-log "OK: Models, Experiments and platform_venv have been found."
+log "OK: Models and Experiments have been found."
 echo
 log "Copying models and experiment files"
 echo --------------------------------------------

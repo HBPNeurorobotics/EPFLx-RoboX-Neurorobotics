@@ -17,10 +17,20 @@ PREEMPTED = 'PREEMPTED'
 # State machine initialization
 sm = StateMachine(outcomes=[FINISHED, ERROR, PREEMPTED])
 
-# Userdata allows to variables accross states
+# Userdata allows to share variables accross states
 sm.userdata.state = np.array([0.,0.])
 sm.userdata.trap_counter = 0
 sm.userdata.trap_state = None
+
+def state_callback(msg):
+    '''this function is called whenever the robot state changed
+        the position (x,y) is saved in userdata'''
+    p = msg.pose[0]
+    sm.userdata.state[0] = p.position.x
+    sm.userdata.state[1] = p.position.y
+
+# the subscriber calls state_callback() whenever it receives a 'ModelState' message from '/gazebo/model_states'
+rospy.Subscriber('/gazebo/model_states', ModelStates, state_callback)
 
 def check_trap():
     @smach.cb_interface(input_keys=['trap_counter', 'trap_state', 'state'],
@@ -46,13 +56,22 @@ def check_trap():
                     return 'valid'
     return check
 
-def new_spawn():
-    x = np.random.choice([-4., 4.])
-    y = np.random.choice([-4., 4.])
+def random_position(userdata, position):
+    x = np.random.choice([-4.0, 4.0])
+    y = np.random.choice([-4.0, 4.0])
     theta = -np.sign(y) * np.pi / 4.
-    if x != -4.:
-        theta *= 3.
-    return SetModelPose('robot', Vector3(x, y, 0.1), Vector3(0., 0., theta), Vector3(1., 1., 1.))
+    if x != -4.0:
+        theta *= 3.0
+    userdata.random_theta = - np.sign(y) * np.pi / 4.0
+    robot_height = 0.023
+    return Vector3(x, y, robot_height)
+
+def random_orientation(userdata, orientation):
+    return Vector3(0.0, 0.0, userdata.random_theta)
+
+
+def new_spawn():
+    return SetModelPose('robot', random_position, random_orientation, Vector3(1.0, 1.0, 1.0))
 
 with sm:
  

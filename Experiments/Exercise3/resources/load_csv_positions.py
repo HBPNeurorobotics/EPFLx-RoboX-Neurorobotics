@@ -3,8 +3,8 @@ import numpy
 import csv
 import math
 
-def load_lattice():
-    with open("lattice.csv") as f:
+def load_lattice(filepath):
+    with open(filepath) as f:
         reader = csv.reader(f)
         next(reader) # skip header
         data = [r for r in reader]
@@ -17,8 +17,8 @@ def load_lattice():
         lattice[x, y, z] = line[3]
     return lattice
 
-def load_waypoints():
-    with open("waypoints.csv") as f:
+def load_waypoints(filepath):
+    with open(filepath) as f:
         reader = csv.reader(f)
         next(reader) # skip header
         data = [r for r in reader]

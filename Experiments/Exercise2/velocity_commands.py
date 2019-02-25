@@ -17,7 +17,7 @@ def velocity_commands(t, right_actor, left_actor):
     # factor for the transformation from actor's voltage to angular rotation component
     ang_factor = 60.
     # angular rotation component as the actors voltage difference
-    z_ang = ang_factor*(left_actor.voltage - right_actor.voltage)
+    z_ang = ang_factor * (left_actor.voltage - right_actor.voltage)
     # print information on the log console
     if t % 2 < 0.02:
         clientLogger.info('linear x: {}, angular z: {}'.format(x_lin, z_ang))

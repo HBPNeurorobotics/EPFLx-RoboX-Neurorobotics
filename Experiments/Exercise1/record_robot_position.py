@@ -2,7 +2,7 @@
 @nrp.MapCSVRecorder("recorder", filename="robot_position.csv", headers=["x", "y", "z"])
 @nrp.MapRobotSubscriber("position", Topic('/gazebo/model_states', gazebo_msgs.msg.ModelStates))
 @nrp.MapVariable("robot_index", global_key="robot_index", initial_value=None)
-def csv_robot_position(t, position, recorder, robot_index):
+def record_robot_position(t, position, recorder, robot_index):
     if not isinstance(position.value, type(None)):
         # determine if previously set robot index has changed
         if robot_index.value is not None:

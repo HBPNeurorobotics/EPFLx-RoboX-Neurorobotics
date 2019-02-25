@@ -7,7 +7,7 @@ The laser scan is composed of 360 beams, these beams are divided into 2 slices: 
 Sensory signals (laser values) are summed up and transformed by an activation function. 
 The result is the rate of a Poisson generator that stimulates sensory neurons.
 '''
-@nrp.MapRobotSubscriber("laser", Topic("/p3dx/laser/scan", sensor_msgs.msg.LaserScan))
+@nrp.MapRobotSubscriber("laser", Topic("/robot/p3dx/laser/scan", sensor_msgs.msg.LaserScan))
 @nrp.MapSpikeSource("right_sensor", nrp.brain.sensors[0], nrp.poisson)
 @nrp.MapSpikeSource("left_sensor", nrp.brain.sensors[1], nrp.poisson)
 @nrp.Robot2Neuron()

@@ -1,7 +1,7 @@
 ﻿#!/usr/bin/env python
 
 import hbp_nrp_excontrol.nrp_states as states
-from hbp_nrp_excontrol.nrp_states._ModelServiceState import SetModelServiceState
+from hbp_nrp_excontrol.nrp_states import SetModelPose
 from hbp_nrp_excontrol.logs import clientLogger
 import smach
 from smach import StateMachine, CBState
@@ -11,36 +11,22 @@ from geometry_msgs.msg import Vector3
 import numpy as np
 import csv
 
-# location where data are saved
-csv_file_name = '/home/kuras/Documents/Neurorobotics_miniprojects/miniproject1/robot_position.csv'
-
 FINISHED = 'FINISHED'
 ERROR = 'ERROR'
 PREEMPTED = 'PREEMPTED'
-# state machine initialization
+# State machine initialization
 sm = StateMachine(outcomes=[FINISHED, ERROR, PREEMPTED])
-# userdata allows to have kind of global variables
+# Userdata allows to share variables accross states
 sm.userdata.state = np.array([0.,0.])
 sm.userdata.trap_counter = 0
 sm.userdata.trap_state = None
 
-# write csv file header
-with open(csv_file_name,'w') as f:
-    w = csv.writer(f)
-    w.writerow(['x','y'])
-
 def state_callback(msg):
     '''this function is called whenever the robot state changed
-        the position (x,y) and orientation (theta) are saved in userdata'''
+        the position (x,y) is saved in userdata'''
     p = msg.pose[0]
     sm.userdata.state[0] = p.position.x
     sm.userdata.state[1] = p.position.y
-    with open(csv_file_name,'a') as f:
-        w = csv.writer(f)
-        w.writerow([p.position.x, p.position.y])
-
-# the subscriber calls state_callback() whenever it receives a 'ModelState' message from '/gazebo/model_states'
-rospy.Subscriber('/gazebo/model_states', ModelStates, state_callback)
 
 def check_trap():
     @smach.cb_interface(input_keys=['trap_counter', 'trap_state', 'state'],
@@ -66,14 +52,22 @@ def check_trap():
                     return 'valid'
     return check
 
+def random_position(userdata, position):
+    x = np.random.choice([-4.0, 4.0])
+    y = np.random.choice([-4.0, 4.0])
+    theta = -np.sign(y) * np.pi / 4.
+    if x != -4.0:
+        theta *= 3.0
+    userdata.random_theta = - np.sign(y) * np.pi / 4.0
+    robot_height = 0.023
+    return Vector3(x, y, robot_height)
+
+def random_orientation(userdata, orientation):
+    return Vector3(0.0, 0.0, userdata.random_theta)
+
+
 def new_spawn():
-    x = np.random.choice([-4., 4.])
-    y = np.random.choice([-4., 4.])
-    if x == -4.:
-        theta = -np.sign(y)*np.pi/ 4.
-    else:
-        theta = -np.sign(y) * 3 * np.pi/ 4.
-    return SetModelServiceState('robot', Vector3(x, y, 0.1), Vector3(0., 0., theta), Vector3(1., 1., 1.))
+    return SetModelPose('robot', random_position, random_orientation, Vector3(1.0, 1.0, 1.0))
 
 with sm:
  

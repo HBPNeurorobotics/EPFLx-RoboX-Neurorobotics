@@ -1,26 +1,28 @@
-<ns1:ExD 
-  xmlns:ns1="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ns1:name>Exercise 1: Make the robot explore its environment by following Braitenberg rules</ns1:name>
-  <ns1:thumbnail>exercise1.png</ns1:thumbnail>
-  <ns1:description>The goal of this exercise is to record the position of the robot while it explores its environment.
-  To do so, follow the instructions located in the python files laser_sensors_transmit.py (Transfer Function) and move_robot.exd (SMACH StateMachine) </ns1:description>
-  <ns1:tags>mooc exercise pioneer robotics Braitenberg</ns1:tags>
-  <ns1:timeout>3600.0</ns1:timeout>
-  <ns1:configuration src="exercise1.ini" type="3d-settings" />
-  <ns1:configuration src="brainvisualizer.json" type="brainvisualizer" />
-  <ns1:configuration src="exercise1.uis" type="user-interaction-settings" />
-  <ns1:maturity>production</ns1:maturity>
-  <ns1:environmentModel src="mooc_arena/mooc_arena.sdf">
-    <ns1:robotPose robotId="robot" x="-4.0" y="-3.5" z="0.0" roll="0.0" pitch="0.0" yaw="1.04719734192" />
-  </ns1:environmentModel>
-  <ns1:bibiConf src="bibi_configuration.bibi" />
-  <ns1:cameraPose>
-    <ns1:cameraPosition x="0.0" y="0.0" z="11.0" />
-    <ns1:cameraLookAt x="0.0" y="0.0" z="0.6" />
-  </ns1:cameraPose>
-  <ns1:rosLaunch src="robot_description.launch" />
-  <ns1:experimentControl>
-    <stateMachine id="move_robot" src="move_robot.exd" xsi:type="ns1:SMACHStateMachine" />
-  </ns1:experimentControl>
-</ns1:ExD>
+<?xml version="1.0" encoding="utf-8"?>
+<ExD xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig"
+     xsi:schemaLocation="http://schemas.humanbrainproject.eu/SP10/2014/ExDConfig ../ExDConfFile.xsd">
+  <name>Exercise 1: Make the robot explore its environment by following Braitenberg rules</name>
+  <thumbnail>exercise1.png</thumbnail>
+  <description>Your goal is to record the position of the robot while it explores its environment.
+  To do so, follow the instructions located in the python files laser_sensors_transmit.py 
+  (Transfer Function) and move_robot.exd (SMACH StateMachine).</description>
+  <tags>mooc exercise pioneer robotics Braitenberg</tags>
+  <timeout>3600.0</timeout>
+  <configuration src="exercise1.ini" type="3d-settings" />
+  <configuration src="brainvisualizer.json" type="brainvisualizer" />
+  <configuration src="exercise1.uis" type="user-interaction-settings" />
+  <maturity>production</maturity>
+  <environmentModel src="mooc_arena/mooc_arena.sdf">
+    <robotPose robotId="robot" x="-4.0" y="-3.5" z="0.0" roll="0.0" pitch="0.0" yaw="1.04719734192" />
+  </environmentModel>
+  <bibiConf src="exercise1.bibi" />
+  <rosLaunch src="robot_description.launch" />
+  <experimentControl>
+    <stateMachine id="move_robot" src="move_robot.exd" xsi:type="SMACHStateMachine" />
+  </experimentControl>
+  <cameraPose>
+    <cameraPosition x="0.0" y="0.0" z="11.0" />
+    <cameraLookAt x="0.0" y="0.0" z="0.6" />
+  </cameraPose>
+</ExD>
