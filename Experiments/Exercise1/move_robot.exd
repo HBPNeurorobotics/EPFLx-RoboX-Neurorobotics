@@ -86,4 +86,4 @@ with sm:
     
     # Move the robot to a new position
     ##_TO_DO_## write the StateMachine.add() that triggers the function 'new_spawn()'
-    # Hint: there is 3 possible transitions associated to 'SetModelServiceState()': "succeeded", "preempted", "aborted"
+    # Hint: there is 3 possible transitions associated to 'SetModelPose()': "succeeded", "preempted", "aborted"

@@ -14,7 +14,7 @@
   <configuration src="exercise1.uis" type="user-interaction-settings" />
   <maturity>production</maturity>
   <environmentModel src="mooc_arena/mooc_arena.sdf">
-    <robotPose robotId="robot" x="-4.0" y="-3.5" z="0.0" roll="0.0" pitch="0.0" yaw="1.04719734192" />
+    <robotPose robotId="robot" x="-4.0" y="-3.5" z="0.023" roll="0.0" pitch="0.0" yaw="1.04719734192" />
   </environmentModel>
   <bibiConf src="exercise1.bibi" />
   <rosLaunch src="robot_description.launch" />
