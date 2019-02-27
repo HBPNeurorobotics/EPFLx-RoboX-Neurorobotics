@@ -56,6 +56,7 @@ def check_trap():
                     return 'valid'
     return check
 
+@smach.cb_interface(output_keys=['random_theta'])
 def random_position(userdata, position):
     x = np.random.choice([-4.0, 4.0])
     y = np.random.choice([-4.0, 4.0])
@@ -66,16 +67,16 @@ def random_position(userdata, position):
     robot_height = 0.023
     return Vector3(x, y, robot_height)
 
+@smach.cb_interface(input_keys=['random_theta'])
 def random_orientation(userdata, orientation):
     return Vector3(0.0, 0.0, userdata.random_theta)
-
 
 def new_spawn():
     return SetModelPose('robot', random_position, random_orientation, Vector3(1.0, 1.0, 1.0))
 
 with sm:
  
-    # Verify wether the robot is trapped/stucked somewhere or not
+    # Verify wether the robot is trapped/stuck somewhere or not
     StateMachine.add("check_trap",
                      CBState(check_trap()),
                      transitions = {"valid": "new_spawn",
