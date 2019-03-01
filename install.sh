@@ -39,13 +39,14 @@ echo --------------------------------------------
 
 echo
 log "Copying models into ${MODELS}"
-cp -R Models/* ${HBP}/Models
+cp -R Models/* ${MODELS} || { log "MODELS ERROR: copying the models failed"; exit 1; }
 echo
 log "Executing \$HBP/Models/create-symlinks.sh"
-bash ${MODELS}/create-symlinks.sh # Create symlinks in ~/.gazebo/models and $HBP/gzweb/http/client/assets
+# Create symlinks in ~/.gazebo/models and $HBP/gzweb/http/client/assets
+bash ${MODELS}/create-symlinks.sh || { log "SYMLINKS ERROR: creating symlinks failed"; exit 1; }
 echo
 log "Copying experiments into ${EXPERIMENTS}"
-cp -R Experiments/* ${HBP}/Experiments
+cp -R Experiments/* ${EXPERIMENTS} || { log "EXPERIMENTS ERROR: copying the experiments failed"; exit 1; }
 echo
 log "Installation of EPFLx-RoboX-Neurorobotics/Models and EPFLx-RoboX-Neurorobotics/Experiments: DONE"
 log "Congrats!"
