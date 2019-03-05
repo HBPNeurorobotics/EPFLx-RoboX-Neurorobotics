@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Week 1 - Exercise 1: Braitenberg control as a way to explore the environment",
+    "description": "Program the Pioneer 3DX robot to explore its environment and record the robot positions during the simulation.",
+    "experience": ["all"],
+    "maturity": null,
+    "access": null,
+    "disabled": false,
+    "picture": {
+      "src": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/thumbnails/exercise1.png",
+      "alt": "Collab logo "
+    },
+    "next": "mooc_form",
+    "files": [   
+      {
+        "entryname": "Week 1 - Exercise 1 (Jupyter Notebook)",
+        "appid": 175,
+        "contenttype": "x-ipynb+json",
+        "extension": ".ipynb",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/516d0122cec0c5ff54706edbdee3b6d5e9b44d0e/Neurorobotics_MOOC_initialization/notebooks/exercise1.ipynb",
+        "initial": true,
+        "justcopy": false
+      }
+    ]
+  },
+  {
+    "title": "Week 2 - Exercise 2: Transform robot positions into a Self Organizing Map (SOM)",
+    "description": "Run the SOM algorithm on the robot positions to get a lattice capturing the main features of the environment.",
+    "experience": ["all"],
+    "maturity": null,
+    "access": null,
+    "disabled": false,
+    "picture": {
+      "src": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/thumbnails/exercise2.png",
+      "alt": "Collab logo "
+    },
+    "next": "mooc_form",
+    "files": [
+      {
+        "entryname": "Week 2 - Exercise 2 (Jupyter Notebook)",
+        "appid": 175,
+        "contenttype": "x-ipynb+json",
+        "extension": ".ipynb",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/516d0122cec0c5ff54706edbdee3b6d5e9b44d0e/Neurorobotics_MOOC_initialization/notebooks/exercise2.ipynb",
+        "justcopy": false,
+        "initial": true
+      },
+      {
+        "entryname": "segments",
+        "appid": 175,
+        "contenttype": "text/csv",
+        "extension": ".csv",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/csv/robot_positions.csv",
+        "justcopy": true
+      }
+    ]
+  },
+  {
+    "title": "Week 3 - Exercise 3: Navigate the robot between any two points of its environment",
+    "description": "Implement the SARSA algorithm to produce a series of waypoints that join any two given locations.",
+    "experience": ["all"],
+    "maturity": null,
+    "access": null,
+    "disabled": false,
+    "picture": {
+      "src": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/thumbnails/exercise3.gif",
+      "alt": "Collab logo "
+    },
+    "next": "mooc_form",
+    "files": [
+      {
+        "entryname": "Week 3 - Exercise 3 (Jupyter Notebook)",
+        "appid": 175,
+        "contenttype": "x-ipynb+json",
+        "extension": ".ipynb",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/516d0122cec0c5ff54706edbdee3b6d5e9b44d0e/Neurorobotics_MOOC_initialization/notebooks/exercise3.ipynb",
+        "justcopy": false,
+        "initial": true
+      }
+    ]
+  }
+]
