@@ -17,7 +17,7 @@
         "appid": 175,
         "contenttype": "x-ipynb+json",
         "extension": ".ipynb",
-        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/516d0122cec0c5ff54706edbdee3b6d5e9b44d0e/Neurorobotics_MOOC_initialization/notebooks/exercise1.ipynb",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/notebooks/exercise1.ipynb",
         "initial": true,
         "justcopy": false
       }
@@ -41,7 +41,7 @@
         "appid": 175,
         "contenttype": "x-ipynb+json",
         "extension": ".ipynb",
-        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/516d0122cec0c5ff54706edbdee3b6d5e9b44d0e/Neurorobotics_MOOC_initialization/notebooks/exercise2.ipynb",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/notebooks/exercise2.ipynb",
         "justcopy": false,
         "initial": true
       },
@@ -73,7 +73,7 @@
         "appid": 175,
         "contenttype": "x-ipynb+json",
         "extension": ".ipynb",
-        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/516d0122cec0c5ff54706edbdee3b6d5e9b44d0e/Neurorobotics_MOOC_initialization/notebooks/exercise3.ipynb",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/notebooks/exercise3.ipynb",
         "justcopy": false,
         "initial": true
       }
