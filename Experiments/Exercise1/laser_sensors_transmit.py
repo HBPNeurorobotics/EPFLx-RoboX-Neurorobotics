@@ -37,5 +37,5 @@ def laser_sensors_transmit(t, right_sensor, left_sensor, laser):
     left_sensor.rate = activation_fct(left_signal, x_0, y_0)
     # Print values in the log console
     if t % 2 < 0.02:
-        clientLogger.info('right signal: {}, left signal: {}'.format(right_signal, left_signal))
-        clientLogger.info('right sensor rate: {}, left sensor rate: {}'.format(right_sensor.rate, left_sensor.rate))
+        clientLogger.info('[laser_sensors_transmit.py] right signal: {}, left signal: {}'.format(right_signal, left_signal))
+        clientLogger.info('[laser_sensors_transmit.py] right sensor rate: {}, left sensor rate: {}'.format(right_sensor.rate, left_sensor.rate))
