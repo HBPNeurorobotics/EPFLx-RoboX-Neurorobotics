@@ -20,7 +20,7 @@ def velocity_commands(t, right_actor, left_actor):
     z_ang = ang_factor*(left_actor.voltage - right_actor.voltage)
     # print information on the log console
     if t % 2 < 0.02:
-        clientLogger.info('linear x: {}, angular z: {}'.format(x_lin, z_ang))
+        clientLogger.info('[velocity_commands.py] linear x: {}, angular z: {}'.format(x_lin, z_ang))
     # build geometry messages
     Vlin = geometry_msgs.msg.Vector3(x_lin,0,0)
     Vang = geometry_msgs.msg.Vector3(0,0,z_ang)
