@@ -3,7 +3,7 @@
 This is a brain with 2 sensory neurons connected to 2 actor neurons.
 This brain reproduce the 'Explorer' behavior of Braitenberg vehicle 3b.
 There is one small difference : connections are excitatory,
-the activity of actor neurons is substracted to ongoing movement in transfer function 'actor_wheels_command', thus reproducing the inhibitory effect.
+the activity of actor neurons is subtracted to ongoing movement in the transfer function 'velocity_commands', thus reproducing the inhibitory effect.
 """
 __author__ = 'Loic Jeanningros'
 from hbp_nrp_cle.brainsim import simulator as sim
