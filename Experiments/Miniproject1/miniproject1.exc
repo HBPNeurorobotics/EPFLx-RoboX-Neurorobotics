@@ -15,7 +15,6 @@
     <robotPose pitch="0.0" roll="0.0" x="-4.0" y="-4.0" yaw="45.0" z="0.1" />
   </environmentModel>
   <bibiConf src="miniproject1.bibi" />
-  <rosLaunch src="robot_description.launch" />
   <experimentControl>
     <stateMachine id="move_robot" src="move_robot.exd" xsi:type="SMACHStateMachine" />
   </experimentControl>
@@ -23,4 +22,5 @@
     <cameraPosition x="0.0" y="0.0" z="11.0" />
     <cameraLookAt x="0.0" y="0.0" z="0.6" />
   </cameraPose>
+  <rosLaunch src="robot_description.launch" />
 </ExD>
