@@ -4,8 +4,8 @@ import numpy as np
 '''
 Transmit laser scan information into sensory neuron activity:
 The laser scan is composed of 360 beams, these beams are divided ino 2 slices: right and left.
-Sensory signals (laser values) are sumed up and transformed by an activation function. 
-The result is the rate of a poisson generator that stimulates sensory neurons.
+Sensory signals (laser values) are summed up and transformed by an activation function. 
+The result is the rate of a Poisson generator that stimulates sensory neurons.
 '''
 @nrp.MapRobotSubscriber("laser", Topic("/robot/p3dx/laser/scan", sensor_msgs.msg.LaserScan))
 @nrp.MapSpikeSource("right_sensor", nrp.brain.sensors[0], nrp.poisson)
