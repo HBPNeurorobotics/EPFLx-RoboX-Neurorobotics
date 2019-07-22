@@ -26,7 +26,7 @@ def laser_sensors_transmit(t, right_sensor, left_sensor, laser):
     idx_middle = 180 # index separating left and right beams
     idx_left = 360 - idx_right # last left beam index
     # Sum of laser beam values 
-    # (using the mean enables to modify beam's slices without changing activation function parameterss)
+    # (using the mean enables to modify beam's slices without changing activation function parameters)
     right_signal = np.mean(laser.value.ranges[slice(idx_right, idx_middle)])
     left_signal = np.mean(laser.value.ranges[slice(idx_middle, idx_left)])
     # Activation function arguments (axes intercepts)
