@@ -7,7 +7,7 @@
     <ns1:populations population="actors" from="2" step="1" to="4" xsi:type="ns1:Range" />
     <ns1:populations population="records" from="0" step="1" to="4" xsi:type="ns1:Range" />
   </ns1:brainModel>
-  <ns1:bodyModel assetPath="p3dx" customAsset="false">p3dx/pioneer3dx.sdf</ns1:bodyModel>
+  <ns1:bodyModel>p3dx/pioneer3dx.sdf</ns1:bodyModel>
   <ns1:transferFunction src="laser_sensors_transmit.py" xsi:type="ns1:PythonTransferFunction" />
   <ns1:transferFunction src="velocity_commands.py" xsi:type="ns1:PythonTransferFunction" />
   <ns1:transferFunction src="record_robot_position.py" xsi:type="ns1:PythonTransferFunction" />
