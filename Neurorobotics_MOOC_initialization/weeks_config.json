@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Week 1 - Mini-project 0: Braitenberg control as a way to explore the environment",
+    "description": "Program the Pioneer 3DX robot to explore its environment and record the robot positions during the simulation.",
+    "experience": ["all"],
+    "maturity": null,
+    "access": null,
+    "disabled": false,
+    "picture": {
+      "src": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/thumbnails/miniproject0.gif",
+      "alt": "Collab logo "
+    },
+    "next": "mooc_form",
+    "files": [   
+      {
+        "entryname": "Week 1 - Mini-project 0 (Jupyter Notebook)",
+        "appid": 175,
+        "contenttype": "x-ipynb+json",
+        "extension": ".ipynb",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/notebooks/miniproject0.ipynb",
+        "initial": true,
+        "justcopy": false
+      }
+    ]
+  },
+  {
+    "title": "Week 2 - Mini-project 1: Transform robot positions into a Self Organizing Map (SOM)",
+    "description": "Run the SOM algorithm on the robot positions to get a lattice capturing the main features of the environment.",
+    "experience": ["all"],
+    "maturity": null,
+    "access": null,
+    "disabled": false,
+    "picture": {
+      "src": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/thumbnails/miniproject1.gif",
+      "alt": "Collab logo "
+    },
+    "next": "mooc_form",
+    "files": [
+      {
+        "entryname": "Week 2 - Mini-project 1 (Jupyter Notebook)",
+        "appid": 175,
+        "contenttype": "x-ipynb+json",
+        "extension": ".ipynb",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/notebooks/miniproject1.ipynb",
+        "justcopy": false,
+        "initial": true
+      },
+      {
+        "entryname": "segments",
+        "appid": 175,
+        "contenttype": "text/csv",
+        "extension": ".csv",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/csv/robot_positions.csv",
+        "justcopy": true
+      }
+    ]
+  },
+  {
+    "title": "Week 3 - Mini-project 2: Navigate the robot between any two points of its environment",
+    "description": "Implement the SARSA algorithm to produce a series of waypoints that join any two given locations.",
+    "experience": ["all"],
+    "maturity": null,
+    "access": null,
+    "disabled": false,
+    "picture": {
+      "src": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/thumbnails/miniproject2.gif",
+      "alt": "Collab logo "
+    },
+    "next": "mooc_form",
+    "files": [
+      {
+        "entryname": "Week 3 - Mini-project 2 (Jupyter Notebook)",
+        "appid": 175,
+        "contenttype": "x-ipynb+json",
+        "extension": ".ipynb",
+        "file": "https://raw.githubusercontent.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics/master/Neurorobotics_MOOC_initialization/notebooks/miniproject2.ipynb",
+        "justcopy": false,
+        "initial": true
+      }
+    ]
+  }
+]
